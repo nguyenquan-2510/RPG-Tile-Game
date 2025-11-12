@@ -7,6 +7,5 @@ function love.update(dt)
 end
 
 function love.draw()
-    -- lo600ve.graphics.print("Hello world", 100, 100)
-    menu(400, 400)
+    love.graphics.circle("line", 200, 200, 100)
 end
