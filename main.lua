@@ -1,4 +1,3 @@
-local menu = require 'ui/menu'
 
 function love.load()
 end
