@@ -19,8 +19,8 @@ function love.load()
         for _, obj in pairs(map.layers["collision_rect"].objects) do
             local x = obj.x
             local y = obj.y
-            local width = (obj.width == 0) and 1 or obj.width
-            local height = (obj.height == 0) and 1 or obj.height
+            local width = (obj.width == 0) and 0.1 or obj.width
+            local height = (obj.height == 0) and 0.1 or obj.height
 
             local wall = world:newRectangleCollider(x, y, width, height)
             wall:setType("static")
