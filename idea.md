@@ -9,7 +9,7 @@
 - Escape the dugeon
 - Developer: **Monicaa Everett** ([nguyenquan-2510](https://github.com/nguyenquan-2510))
 - External libs: [STI](https://github.com/karai17/Simple-Tiled-Implementation), [anim8](https://github.com/kikito/anim8), [hump/camera](https://github.com/vrld/hump), [winfield](https://github.com/a327ex/windfield)
-- Assets: [pixel-poem/dugeon-assetpuck](https://pixel-poem.itch.io/dungeon-assetpuck)
+- Assets: [o-lobster/adventure-pack](https://o-lobster.itch.io/adventure-pack)
 - Language and framework: __Obviously__ _Lua_ with _LOVE2D_ engine
 - Deadline: Okay maybe before 4/2026
 

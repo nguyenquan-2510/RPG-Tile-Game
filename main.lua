@@ -19,6 +19,6 @@ function love.update(dt)
 end
 
 function love.draw()
-    map:draw()
+    map:draw(0, 0, 4)
     world:draw()
 end

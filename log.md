@@ -7,3 +7,4 @@
 
 ### `13/11/2025`
 - Change the original game idea (may be comeback in the future)
+- Create a test map and know the scale of the map in the sti lib
