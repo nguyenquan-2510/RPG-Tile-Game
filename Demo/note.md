@@ -1,1 +1,1 @@
-# Wtf this tileset is really small !!
+# Wtf this initial tileset is really small !!
