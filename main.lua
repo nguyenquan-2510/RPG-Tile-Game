@@ -12,6 +12,21 @@ function love.load()
 
     -- Load the test map
     map = sti("Demo/test.lua")
+
+    -- Draw the collision
+    walls = {}
+    if map.layers["collision_rect"] then
+        for _, obj in pairs(map.layers["collision_rect"].objects) do
+            local x = obj.x
+            local y = obj.y
+            local width = (obj.width == 0) and 1 or obj.width
+            local height = (obj.height == 0) and 1 or obj.height
+
+            local wall = world:newRectangleCollider(x, y, width, height)
+            wall:setType("static")
+            table.insert(walls, wall)
+        end
+    end
 end
 
 function love.update(dt)
@@ -19,6 +34,13 @@ function love.update(dt)
 end
 
 function love.draw()
-    map:draw(0, 0, 4) -- 4 is perfect for now
+    -- map:draw(0, 0, 4) -- 4 is perfect for now
+
+    love.graphics.push()
+    love.graphics.scale(4, 4)
+    map:drawLayer(map.layers["general_ground"])
+    map:drawLayer(map.layers["detail_ground"])
+    map:drawLayer(map.layers["objects"])
     world:draw()
+    love.graphics.pop()
 end

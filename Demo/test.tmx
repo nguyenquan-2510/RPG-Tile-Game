@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="2">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="29">
+ <editorsettings>
+  <export target="test.lua" format="lua"/>
+ </editorsettings>
  <tileset firstgid="1" name="Overworld_Tileset" tilewidth="16" tileheight="16" tilecount="234" columns="18">
   <image source="../Original-Assets/Top_Down_Adventure_Pack_v.1.0/Overworld_Tileset.png" width="288" height="208"/>
  </tileset>
@@ -81,5 +84,33 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="4" name="collision_rect"/>
+ <objectgroup id="4" name="collision_rect">
+  <object id="2" x="128" y="112" width="16" height="16"/>
+  <object id="3" x="32" y="96" height="48"/>
+  <object id="4" x="32" y="144" width="32"/>
+  <object id="5" x="80" y="144" width="16"/>
+  <object id="6" x="96" y="96" height="48"/>
+  <object id="7" x="80" y="96" width="16"/>
+  <object id="8" x="32" y="96" width="32"/>
+  <object id="9" x="0" y="0" width="320" height="320"/>
+  <object id="10" x="176" y="96" width="32"/>
+  <object id="11" x="176" y="96" height="48"/>
+  <object id="12" x="176" y="144" width="32"/>
+  <object id="13" x="224" y="144" width="16"/>
+  <object id="14" x="240" y="96" height="48"/>
+  <object id="15" x="224" y="96" width="16"/>
+  <object id="16" x="192" y="112" height="16"/>
+  <object id="17" x="224" y="112" height="16"/>
+  <object id="18" x="16" y="192" height="48"/>
+  <object id="19" x="16" y="192" width="48"/>
+  <object id="20" x="64" y="192" height="48"/>
+  <object id="21" x="48" y="240" width="16"/>
+  <object id="22" x="16" y="240" width="16"/>
+  <object id="23" x="16" y="240" height="48"/>
+  <object id="24" x="16" y="288" width="16"/>
+  <object id="25" x="32" y="240" height="48"/>
+  <object id="26" x="48" y="240" width="16" height="48"/>
+  <object id="27" x="256" y="112" width="48" height="64"/>
+  <object id="28" x="256" y="192" width="48" height="32"/>
+ </objectgroup>
 </map>
