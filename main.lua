@@ -1,5 +1,7 @@
 
 function love.load()
+    love.graphics.setDefaultFilter("nearest", "nearest")
+
     -- external libs
     sti = require 'libs/sti'
     anim8 = require 'libs/anim8'
@@ -7,7 +9,9 @@ function love.load()
     wf = require 'libs/windfield'
 
     world = wf.newWorld(0, 0)
-    rect1 = world:newRectangleCollider(100, 100, 200, 100)
+
+    -- Load the test map
+    map = sti("Demo/test.lua")
 end
 
 function love.update(dt)
@@ -15,5 +19,6 @@ function love.update(dt)
 end
 
 function love.draw()
+    map:draw()
     world:draw()
 end
