@@ -17,12 +17,11 @@ function render.draw_with_scale(draw_function, parameter, scale_x, scale_y)
 
     love.graphics.push()
     love.graphics.scale(scale_x, scale_y)
-    
+
     if parameter then
         draw_function(parameter)
     else draw_function()
     end
-
     love.graphics.pop()
 end
 

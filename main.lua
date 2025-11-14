@@ -39,10 +39,11 @@ end
 function love.draw()
     -- map:draw(0, 0, 4) -- 4 is perfect for now
 
+    -- Draw map
     render.draw_layer_with_scale(map, "general_ground", 4)
     render.draw_layer_with_scale(map, "detail_ground", 4)
     render.draw_layer_with_scale(map, "objects", 4)
 
-    -- world:draw()
-    render.draw_with_scale(world.draw, world, 4)
+    -- Draw colliders (walls)
+    render.draw_with_scale(function() world:draw() end, nil, 4)
 end
