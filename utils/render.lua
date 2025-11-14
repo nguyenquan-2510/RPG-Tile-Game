@@ -1,6 +1,7 @@
 local render = {}
 
-function render.draw_layer_with_scale(render_map, layer_name, scale_x, scale_y)
+-- Draw scaled maps
+function render.draw_scaled_layer(render_map, layer_name, scale_x, scale_y)
 
     scale_x = scale_x or 1
     scale_y = scale_y or scale_x
@@ -11,6 +12,7 @@ function render.draw_layer_with_scale(render_map, layer_name, scale_x, scale_y)
     love.graphics.pop()
 end
 
+-- Use a draw function with a scale ratio
 function render.draw_with_scale(draw_function, parameter, scale_x, scale_y)
     scale_x = scale_x or 1
     scale_y = scale_y or scale_x
@@ -23,6 +25,17 @@ function render.draw_with_scale(draw_function, parameter, scale_x, scale_y)
     else draw_function()
     end
     love.graphics.pop()
+end
+
+function render.render_collision_wall(map, layer, storage)
+    if map.layers[layer] then
+        for _, obj in pairs(map.layers[layer].objects) do
+            local x, y, w, h = obj.x, obj.y, (obj.width ~= 0) and obj.width or 0.1, (obj.height ~= 0) and obj.height or 0.1
+            local wall = world:newRectangleCollider(x, y, w, h)
+            wall:setType("static")
+            table.insert(storage, wall)
+        end
+    end
 end
 
 return render

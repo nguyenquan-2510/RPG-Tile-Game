@@ -18,18 +18,7 @@ function love.load()
 
     -- Draw the collision
     walls = {}
-    if map.layers["collision_rect"] then
-        for _, obj in pairs(map.layers["collision_rect"].objects) do
-            local x = obj.x
-            local y = obj.y
-            local width = (obj.width == 0) and 0.1 or obj.width
-            local height = (obj.height == 0) and 0.1 or obj.height
-
-            local wall = world:newRectangleCollider(x, y, width, height)
-            wall:setType("static")
-            table.insert(walls, wall)
-        end
-    end
+    render.render_collision_wall(map, "collision_rect", walls)
 end
 
 function love.update(dt)
@@ -40,9 +29,9 @@ function love.draw()
     -- map:draw(0, 0, 4) -- 4 is perfect for now
 
     -- Draw map
-    render.draw_layer_with_scale(map, "general_ground", 4)
-    render.draw_layer_with_scale(map, "detail_ground", 4)
-    render.draw_layer_with_scale(map, "objects", 4)
+    render.draw_scaled_layer(map, "general_ground", 4)
+    render.draw_scaled_layer(map, "detail_ground", 4)
+    render.draw_scaled_layer(map, "objects", 4)
 
     -- Draw colliders (walls)
     render.draw_with_scale(function() world:draw() end, nil, 4)
