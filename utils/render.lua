@@ -11,7 +11,7 @@ function render.draw_layer_with_scale(render_map, layer_name, scale_x, scale_y)
     love.graphics.pop()
 end
 
-function render.draw_with_scale(func, parameter, scale_x, scale_y)
+function render.draw_with_scale(draw_function, parameter, scale_x, scale_y)
     scale_x = scale_x or 1
     scale_y = scale_y or scale_x
 
@@ -19,8 +19,8 @@ function render.draw_with_scale(func, parameter, scale_x, scale_y)
     love.graphics.scale(scale_x, scale_y)
     
     if parameter then
-        func(parameter)
-    else func()
+        draw_function(parameter)
+    else draw_function()
     end
 
     love.graphics.pop()
