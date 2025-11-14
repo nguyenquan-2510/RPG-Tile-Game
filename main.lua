@@ -8,6 +8,9 @@ function love.load()
     cam = require 'libs/camera'
     wf = require 'libs/windfield'
 
+    -- Utilities
+    render = require 'utils.render'
+
     world = wf.newWorld(0, 0)
 
     -- Load the test map
@@ -36,11 +39,10 @@ end
 function love.draw()
     -- map:draw(0, 0, 4) -- 4 is perfect for now
 
-    love.graphics.push()
-    love.graphics.scale(4, 4)
-    map:drawLayer(map.layers["general_ground"])
-    map:drawLayer(map.layers["detail_ground"])
-    map:drawLayer(map.layers["objects"])
-    world:draw()
-    love.graphics.pop()
+    render.draw_layer_with_scale(map, "general_ground", 4)
+    render.draw_layer_with_scale(map, "detail_ground", 4)
+    render.draw_layer_with_scale(map, "objects", 4)
+
+    -- world:draw()
+    render.draw_with_scale(world.draw, world, 4)
 end

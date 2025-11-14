@@ -9,3 +9,8 @@
 - Change the original game idea (may be comeback in the future)
 - Create a test map and know the scale of the map in the sti lib
 - Draw each layer of the map (useful in the future)
+
+### `14/11/2025`
+- Upgrade the draw method so that it can be drawn with scale
+- Added ultis/render
+- Haven't created the player character and the camera yet
