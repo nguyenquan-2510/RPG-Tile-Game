@@ -13,4 +13,4 @@
 ### `14/11/2025`
 - Upgrade the draw method so that it can be drawn with scale
 - Added ultis/render
-- Haven't created the player character and the camera yet
+- Added player and still testing the anim8 lib

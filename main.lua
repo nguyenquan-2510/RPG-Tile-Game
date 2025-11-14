@@ -11,6 +11,12 @@ function love.load()
     -- Utilities
     render = require 'utils.render'
 
+
+    -- Player
+    Player = require 'Player'
+    player = Player("Player/char_spritesheet.png")
+
+
     world = wf.newWorld(0, 0)
 
     -- Load the test map
@@ -22,6 +28,8 @@ function love.load()
 end
 
 function love.update(dt)
+    player.animations.down:update(dt)
+
     world:update(dt)
 end
 
@@ -35,4 +43,5 @@ function love.draw()
 
     -- Draw colliders (walls)
     render.draw_with_scale(function() world:draw() end, nil, 4)
+    render.draw_with_scale(function () player.animations.down:draw(player.spritesheet, 100, 100) end, nil, 4)
 end
