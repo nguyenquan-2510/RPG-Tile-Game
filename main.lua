@@ -13,7 +13,6 @@ function love.update(dt)
 end
 
 function love.draw()
-    -- map:draw(0, 0, 4) -- 4 is perfect for now
 
     -- Draw map
     render.draw_scaled_layer(map, "general_ground", 4)
