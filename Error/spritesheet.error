@@ -1,0 +1,17 @@
+Error
+
+libs/anim8.lua:59: There is no frame for x=1, y=1
+
+
+Traceback
+
+[love "callbacks.lua"]:228: in function 'handler'
+[C]: in function 'error'
+libs/anim8.lua:59: in function 'getOrCreateFrame'
+libs/anim8.lua:87: in function 'idle_grid'
+Player/init.lua:18: in main chunk
+[C]: in function 'require'
+main.lua:16: in function 'load'
+[love "callbacks.lua"]:136: in function <[love "callbacks.lua"]:135>
+[C]: in function 'xpcall'
+[C]: in function 'xpcall'

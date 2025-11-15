@@ -11,6 +11,10 @@
 - Draw each layer of the map (useful in the future)
 
 ### `14/11/2025`
-- Upgrade the draw method so that it can be drawn with scale
+- Upgrade the draw method so that it can bedrawn with scale
 - Added ultis/render
 - Added player and still testing the anim8 lib
+
+### `15/11/2025`
+- Ah shit finally created the animation for the player (idle state (down direction))
+- Maybe i 'll use seperated animation sheets instead of a large sheet ( hmm? )

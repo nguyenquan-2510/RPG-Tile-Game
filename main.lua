@@ -27,7 +27,8 @@ function love.load()
 end
 
 function love.update(dt)
-    player.animations.down:update(dt)
+    -- player.animations.down:update(dt)
+    player.idle_anim.down:update(dt)
 
     world:update(dt)
 end
@@ -42,6 +43,7 @@ function love.draw()
 
     -- Draw colliders (walls)
     render.draw_with_scale(function() world:draw() end, nil, 4)
-    -- render.draw_with_scale(function () player.animations.down:draw(player.spritesheet, 25, 25) end, nil, 4)
-    player.animations.down:draw(player.spritesheet, 50, 50)
+
+    -- player.animations.down:draw(player.spritesheet, 50, 50)
+    player.idle_anim.down:draw(player.idle_sheet, 100, 100, 0, 4, 4)
 end
