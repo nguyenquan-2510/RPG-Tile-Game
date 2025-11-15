@@ -13,8 +13,7 @@ function love.load()
 
 
     -- Player
-    Player = require 'Player'
-    player = Player("Player/char_spritesheet.png")
+    player = require 'Player'
 
 
     world = wf.newWorld(0, 0)
@@ -43,5 +42,6 @@ function love.draw()
 
     -- Draw colliders (walls)
     render.draw_with_scale(function() world:draw() end, nil, 4)
-    render.draw_with_scale(function () player.animations.down:draw(player.spritesheet, 100, 100) end, nil, 4)
+    -- render.draw_with_scale(function () player.animations.down:draw(player.spritesheet, 25, 25) end, nil, 4)
+    player.animations.down:draw(player.spritesheet, 50, 50)
 end

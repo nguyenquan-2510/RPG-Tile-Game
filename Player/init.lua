@@ -1,24 +1,10 @@
 
 local player = {}
-player.__index = player
 
-setmetatable(player, {
-    __call = function(self, ...)
-        return self:new(...)
-    end
-})
+player.spritesheet = love.graphics.newImage("Player/char_spritesheet.png")
+player.grid = anim8.newGrid(32, 32,player.spritesheet:getWidth(), player.spritesheet:getHeight())
 
-function player:new(spritesheet)
-    local entity = {}
-    entity.spritesheet = love.graphics.newImage(spritesheet)
-    -- entity.grid = anim8.newGrid(16, 16, 16 * 6, 16 * 4, 16, 16, 0)
-    entity.grid = anim8.newGrid(32, 32, entity.spritesheet:getWidth(), entity.spritesheet:getHeight())
-
-    entity.animations = {}
-    entity.animations.down = anim8.newAnimation(entity.grid('1-6', 1), 0.2)
-
-    setmetatable(entity, self)
-    return entity
-end
+player.animations = {}
+player.animations.down = anim8.newAnimation(player.grid('1-6', 1), 0.2)
 
 return player
