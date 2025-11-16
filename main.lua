@@ -15,9 +15,10 @@ function love.load()
     require 'src.collision_init'
     init_collision_wall(map, "collision_rect", walls)
 
+    -- The player and some contracted forms of variables
     player = require 'Player'
     require 'src.definitions' -- Some useful definitions
-    player.state = idle_down
+    player.state = idle["down"]
 end
 
 function love.update(dt)
