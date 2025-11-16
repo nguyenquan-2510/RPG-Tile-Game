@@ -6,6 +6,10 @@ player.x = 100
 player.y = 100
 player.speed = 300
 
+
+
+
+
 -- Store spritesheet data
 player.idle_sheet = {}
 player.idle_sheet.down = love.graphics.newImage("Player/idle/idle_down.png")
