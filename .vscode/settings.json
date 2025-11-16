@@ -7,6 +7,5 @@
         "undefined-global",
         // "param-type-mismatch"
     ],
-    "files.associations":
-    {}
+    
 }
