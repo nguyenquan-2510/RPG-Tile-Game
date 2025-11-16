@@ -32,19 +32,21 @@ function love.update(dt)
 end
 
 function love.draw()
+    cam:attach()
+
     love.graphics.push()
     love.graphics.scale(4, 4)
 
-    cam:attach()
     map:drawLayer(map.layers["general_ground"])
     map:drawLayer(map.layers["detail_ground"])
     map:drawLayer(map.layers["objects"])
 
     player.state:draw(idle[player.sheet_dir], player.x, player.y, 0, 1, 1)
     world:draw()
-    cam:detach()
 
     love.graphics.pop()
+
+    cam:detach()
 end
 
 function love.keypressed(key)
