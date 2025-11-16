@@ -16,7 +16,7 @@ function love.load()
         for _, obj in pairs(map.layers["collision_rect"].objects) do
             local x, y, w, h = obj.x, obj.y, (obj.width == 0) and 0.1 or obj.width, (obj.height == 0) and 0.1 or obj.height
             local wall = world:newRectangleCollider(x, y, w, h)
-            -- wall:setType("static")
+            wall:setType("static")
             table.insert(walls, wall)
         end
     end
@@ -28,6 +28,9 @@ function love.load()
     player.grid = anim8.newGrid(16, 16, player.sheet:getWidth(), player.sheet:getHeight())
     player.animations = {}
     player.animations.down = anim8.newAnimation(player.grid('1-6', 1), 0.2)
+
+    player.collider = world:newBSGRectangleCollider(player.x, player.y, 20, 20, 5)
+    player.collider:setType("static")
 end
 
 function love.update(dt)
