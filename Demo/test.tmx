@@ -92,7 +92,6 @@
   <object id="6" x="96" y="96" height="48"/>
   <object id="7" x="80" y="96" width="16"/>
   <object id="8" x="32" y="96" width="32"/>
-  <object id="9" x="0" y="0" width="320" height="320"/>
   <object id="10" x="176" y="96" width="32"/>
   <object id="11" x="176" y="96" height="48"/>
   <object id="12" x="176" y="144" width="32"/>

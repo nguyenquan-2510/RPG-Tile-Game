@@ -19,3 +19,6 @@
 - Ah shit finally created the animation for the player (idle state (down direction))
 - Maybe i 'll use seperated animation sheets instead of a large sheet ( hmm? )
 - Moved all the required load command into a seperate file
+
+### `16/11/2025`
+- Decided to merge all code stuff into one file main.lua (except ext libs)

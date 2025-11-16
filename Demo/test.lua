@@ -328,19 +328,6 @@ return {
           properties = {}
         },
         {
-          id = 9,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 0,
-          y = 0,
-          width = 320,
-          height = 320,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        },
-        {
           id = 10,
           name = "",
           type = "",
