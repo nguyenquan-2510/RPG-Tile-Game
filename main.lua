@@ -34,15 +34,26 @@ function love.load()
 end
 
 function love.update(dt)
+
+
+    player.idle_anim.down:update(dt)
+
     world:update(dt)
     player.animations.down:update(dt)
 end
 
 function love.draw()
+    cam:attach()
+
     -- Draw map
-    map:drawLayer(map.layers["general_ground"])
-    map:drawLayer(map.layers["detail_ground"])
-    map:drawLayer(map.layers["objects"])
-    world:draw()
-    player.animations.down:draw(player.sheet, player.x, player.y, 0, 1, 1)
+    render.draw_scaled_layer(map, "general_ground", 4)
+    render.draw_scaled_layer(map, "detail_ground", 4)
+    render.draw_scaled_layer(map, "objects", 4)
+
+    -- Draw colliders (walls)
+    render.draw_with_scale(function() world:draw() end, nil, 4)
+
+    player.idle_anim.down:draw(player.idle_sheet.down, 100, 100, 0, 4, 4)
+
+    cam:detach()
 end
