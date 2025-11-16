@@ -30,30 +30,18 @@ function love.load()
     player.animations.down = anim8.newAnimation(player.grid('1-6', 1), 0.2)
 
     player.collider = world:newBSGRectangleCollider(player.x, player.y, 20, 20, 5)
-    player.collider:setType("static")
 end
 
 function love.update(dt)
-
-
-    player.idle_anim.down:update(dt)
-
-    world:update(dt)
     player.animations.down:update(dt)
+    world:update(dt)
 end
 
 function love.draw()
-    cam:attach()
+    map:drawLayer(map.layers["general_ground"])
+    map:drawLayer(map.layers["detail_ground"])
+    map:drawLayer(map.layers["objects"])
 
-    -- Draw map
-    render.draw_scaled_layer(map, "general_ground", 4)
-    render.draw_scaled_layer(map, "detail_ground", 4)
-    render.draw_scaled_layer(map, "objects", 4)
-
-    -- Draw colliders (walls)
-    render.draw_with_scale(function() world:draw() end, nil, 4)
-
-    player.idle_anim.down:draw(player.idle_sheet.down, 100, 100, 0, 4, 4)
-
-    cam:detach()
+    player.animations.down:draw(player.sheet, player.x, player.y, 0, 1, 1)
+    world:draw()
 end
