@@ -1,10 +1,12 @@
 {
     "files.exclude": {
-        "*.code-workspace": true,
+        "*.code-workspace": false,
         "**/Thumbs.db": false
     },
     "Lua.diagnostics.disable": [
         "undefined-global",
         // "param-type-mismatch"
-    ]
+    ],
+    "files.associations":
+    {}
 }
