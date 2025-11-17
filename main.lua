@@ -29,44 +29,78 @@ function love.load()
     player.state = "idle"
 
     -- Name of the animation sheet
-    player.sheet_name = player.state .. "_" .. player.dir .. "_sheet"
-    player.sheet_dir = anim[player.sheet_name]
-
-    player.anim = anim[player.state][player.dir]
+    player:set_anim(player.state, player.dir)
 end
 
-
-function love.keypressed(key)
-    if key == "escape" then
-        love.event.quit()
-    end
-
-    if key == "right" or key == "left" or key == "up" or key == "down" then
-        player.dir = tostring(key)
-        player.sheet_name = player.state .. "_" .. player.dir .. "_sheet"
-        player.sheet_dir = anim[player.sheet_name]
-    end
-end
 
 function love.update(dt)
-    player.anim:update(dt)
+
+    local vx, vy = 0, 0
+    local isMoving = false
+
+    if love.keyboard.isDown("right") then
+        vx = player.speed
+        player:set_anim("run", "right")
+        isMoving = true
+    end
+    if love.keyboard.isDown("left") then
+        vx = -1 * player.speed
+        player:set_anim("run", "left")
+        isMoving = true
+    end
+    if love.keyboard.isDown("down") then
+        vy = player.speed
+        player:set_anim("run", "down")
+        isMoving = true
+    end
+    if love.keyboard.isDown("up") then
+        vy = -1 * player.speed
+        player:set_anim("run", "up")
+        isMoving = true
+    end
+
+    player.collider:setLinearVelocity(vx, vy)
+
+    if not isMoving then
+        player:set_anim("idle", player.dir)
+    end
+
     world:update(dt)
+    map:update(dt)
+
+    player.x = player.collider:getX()
+    player.y = player.collider:getY()
+
+    player.anim:update(dt)
+
+    cam:lookAt(player.x, player.y)
+
+     -- Clamp camera vào map
+    local w = love.graphics.getWidth()  / 4   -- chia theo scale
+    local h = love.graphics.getHeight() / 4
+
+    if cam.x < w/2 then cam.x = w/2 end
+    if cam.y < h/2 then cam.y = h/2 end
+
+    local mapW = map.width * map.tilewidth
+    local mapH = map.height * map.tileheight
+
+    if cam.x > mapW - w/2 then cam.x = mapW - w/2 end
+    if cam.y > mapH - h/2 then cam.y = mapH - h/2 end
 end
 
 function love.draw()
-    cam:attach()
 
-    love.graphics.push()
-    love.graphics.scale(4, 4)
+    cam:zoomTo(4)
+    cam:attach()
 
     map:drawLayer(map.layers["general_ground"])
     map:drawLayer(map.layers["detail_ground"])
     map:drawLayer(map.layers["objects"])
 
-    player.anim:draw(player.sheet_dir, player.x, player.y, 0, 1, 1)
+    player.anim:draw(player.sheet_dir, player.x, player.y, 0, 1, 1, 8, 8)
     world:draw()
 
-    love.graphics.pop()
-
     cam:detach()
+
 end

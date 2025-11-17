@@ -27,3 +27,4 @@
 
 ### `17/11/2025`
 - Redefining the shorten form of the animation state
+- Fuck why i can't think about using cam:zoomto function????? am i fool

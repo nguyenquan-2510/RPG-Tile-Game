@@ -2,12 +2,22 @@
 local player = {}
 
 -- General properties
-player.x = 100
-player.y = 100
-player.speed = 300
+player.x = 0
+player.y = 0
+player.speed = 100
 
+function player:set_anim(state, direction)
+    self.state = state
+    self.dir = direction
 
+    self.sheet_name = self.state .. "_" .. self.dir .. "_sheet"
 
+    -- Need for anim8 draw
+    self.sheet_dir = anim[self.sheet_name]
+
+    -- anim8 update
+    self.anim = anim[self.state][self.dir]
+end
 
 
 -- Store spritesheet data
@@ -24,7 +34,8 @@ player.run_sheet.left = love.graphics.newImage("Player/run/run_left.png")
 player.run_sheet.right = love.graphics.newImage("Player/run/run_right.png")
 
 -- Collision hitbox
-player.collider = world:newBSGRectangleCollider(player.x + 3, player.y, 10, 15, 2)
+player.collider = world:newBSGRectangleCollider(player.x, player.y, 10, 15, 2)
+player.collider:setFixedRotation(true)
 
 local animations = {}
 animations.__index = animations

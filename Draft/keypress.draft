@@ -1,0 +1,12 @@
+
+function love.keypressed(key)
+    if key == "escape" then
+        love.event.quit()
+    end
+
+    if key == "right" or key == "left" or key == "up" or key == "down" then
+        player.dir = tostring(key)
+        player.sheet_name = player.state .. "_" .. player.dir .. "_sheet"
+        player.sheet_dir = anim[player.sheet_name]
+    end
+end
