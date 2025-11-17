@@ -24,3 +24,6 @@
 - Decided to merge all code stuff into one file main.lua (except ext libs)
 - Seperated the code again cuz I could find the problem now
 - Created all the animations (idle, run)
+
+### `17/11/2025`
+- Redefining the shorten form of the animation state

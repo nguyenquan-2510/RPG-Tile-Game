@@ -2,7 +2,10 @@
 function love.load()
     love.graphics.setDefaultFilter("nearest", "nearest")
 
-    require 'src/ext_load' -- Load external libs (anim8, sti, windfield, camera)
+    sti = require 'libs/sti'
+    anim8 = require 'libs/anim8'
+    camera = require 'libs/camera'
+    wf = require 'libs/windfield'
 
     -- Initialize new world
     world = wf.newWorld(0, 0)
