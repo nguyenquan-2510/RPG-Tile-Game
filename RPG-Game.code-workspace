@@ -6,10 +6,8 @@
 	],
 	"settings": {
 		"files.associations": {
-			"*.lua_class": "lua",
-			"*.draft": "lua",
-			"*.inp": "plaintext",
-			"*.out": "plaintext"
+			"*.draft": "lua", // Lua rough code
+			"*.error": "log",
 		}
 	},
 }
