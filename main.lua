@@ -34,37 +34,9 @@ end
 
 
 function love.update(dt)
+    player:move()
 
-    local vx, vy = 0, 0
-    local isMoving = false
-
-    if love.keyboard.isDown("right") then
-        vx = player.speed
-        player:set_anim("run", "right")
-        isMoving = true
-    end
-    if love.keyboard.isDown("left") then
-        vx = -1 * player.speed
-        player:set_anim("run", "left")
-        isMoving = true
-    end
-    if love.keyboard.isDown("down") then
-        vy = player.speed
-        player:set_anim("run", "down")
-        isMoving = true
-    end
-    if love.keyboard.isDown("up") then
-        vy = -1 * player.speed
-        player:set_anim("run", "up")
-        isMoving = true
-    end
-
-    player.collider:setLinearVelocity(vx, vy)
-
-    if not isMoving then
-        player:set_anim("idle", player.dir)
-    end
-
+    
     world:update(dt)
     map:update(dt)
 

@@ -2,9 +2,9 @@
 local player = {}
 
 -- General properties
-player.x = 0
-player.y = 0
-player.speed = 100
+player.x = 32
+player.y = 32
+player.speed = 50
 
 function player:set_anim(state, direction)
     self.state = state
@@ -17,6 +17,40 @@ function player:set_anim(state, direction)
 
     -- anim8 update
     self.anim = anim[self.state][self.dir]
+end
+
+function player:move()
+    
+    local vx, vy = 0, 0
+    local isMoving = false
+
+    if love.keyboard.isDown("right") then
+        vx = player.speed
+        player:set_anim("run", "right")
+        isMoving = true
+    end
+    if love.keyboard.isDown("left") then
+        vx = -1 * player.speed
+        player:set_anim("run", "left")
+        isMoving = true
+    end
+    if love.keyboard.isDown("down") then
+        vy = player.speed
+        player:set_anim("run", "down")
+        isMoving = true
+    end
+    if love.keyboard.isDown("up") then
+        vy = -1 * player.speed
+        player:set_anim("run", "up")
+        isMoving = true
+    end
+
+    player.collider:setLinearVelocity(vx, vy)
+
+    if not isMoving then
+        player:set_anim("idle", player.dir)
+    end
+
 end
 
 
