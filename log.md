@@ -28,3 +28,6 @@
 ### `17/11/2025`
 - Redefining the shorten form of the animation state
 - Fuck why i can't think about using cam:zoomto function????? am i fool
+
+### `18/11/2025`
+- Added fullscreen mode to my game and easily switch to escape fullscreen mode
