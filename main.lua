@@ -32,6 +32,8 @@ function love.load()
     player:set_anim(player.state, player.dir)
 
     require 'config'
+
+    print("All files loaded successfully ! Starting the game ...")
 end
 
 function love.update(dt)
@@ -71,8 +73,9 @@ function love.draw()
     map:drawLayer(map.layers["objects"])
 
     player.anim:draw(player.sheet_dir, player.x, player.y, 0, 1, 1, 8, 8)
-    world:draw()
-
+    if debug_mode then
+        world:draw()
+    end
     cam:detach()
 
 end
@@ -84,5 +87,10 @@ function love.keypressed(key)
 
     if key == "z" then
         love.window.setFullscreen(not love.window.getFullscreen())
+    end
+
+    if key == "o" then
+        debug_mode = not debug_mode
+        print(string.format("Debug mode: %s", tostring(debug_mode)))
     end
 end
