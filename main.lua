@@ -30,8 +30,9 @@ function love.load()
 
     -- Name of the animation sheet
     player:set_anim(player.state, player.dir)
-end
 
+    require 'config'
+end
 
 function love.update(dt)
     player:move()
@@ -47,10 +48,9 @@ function love.update(dt)
 
     cam:lookAt(player.x, player.y)
 
-     -- Clamp camera vào map
-    local w = love.graphics.getWidth()  / 4   -- chia theo scale
-    local h = love.graphics.getHeight() / 4
-
+     -- Clamp camera
+    local w = love.graphics.getWidth()  / scale
+    local h = love.graphics.getHeight() / scale
     if cam.x < w/2 then cam.x = w/2 end
     if cam.y < h/2 then cam.y = h/2 end
 
@@ -63,7 +63,7 @@ end
 
 function love.draw()
 
-    cam:zoomTo(4)
+    cam:zoomTo(scale)
     cam:attach()
 
     map:drawLayer(map.layers["general_ground"])
@@ -75,4 +75,14 @@ function love.draw()
 
     cam:detach()
 
+end
+
+function love.keypressed(key)
+    if key == "escape" then
+        love.event.quit()
+    end
+
+    if key == "z" then
+        love.window.setFullscreen(not love.window.getFullscreen())
+    end
 end
