@@ -11,7 +11,7 @@ function love.load()
     world = wf.newWorld(0, 0)
 
     -- Load the test map
-    map = sti("Demo/test.lua")
+    map = sti("Maps/map.lua")
 
     -- New camera object
     cam = camera()
@@ -70,7 +70,7 @@ function love.draw()
 
     map:drawLayer(map.layers["general_ground"])
     map:drawLayer(map.layers["detail_ground"])
-    map:drawLayer(map.layers["objects"])
+    -- map:drawLayer(map.layers["objects"])
 
     player.anim:draw(player.sheet_dir, player.x, player.y, 0, 1, 1, 8, 8)
     if debug_mode then
